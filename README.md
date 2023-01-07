@@ -11,6 +11,7 @@ Corona virus tracker app built using laravel vue js and tomtom maps.
 
 ### Installing
 
+Laravel
 ```
 composer install
 cp .env.example .env
@@ -27,3 +28,8 @@ Finally
 ```
 php artisan serve 
 ```
+### Points not covered and known Issues 
+- Docker 
+- Testing 
+- App UI 'design is not good'
+- App is not responsive
