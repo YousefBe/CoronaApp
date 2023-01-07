@@ -15,13 +15,13 @@ return new class extends Migration
     {
         Schema::create('statistics', function (Blueprint $table) {
             $table->id();
-            $table->date('last_update');
-            $table->bigInteger('new_deaths');
-            $table->bigInteger('total_deaths');
-            $table->bigInteger('new_confirmed');
-            $table->bigInteger('total_confirmed');
-            $table->bigInteger('new_recovered');
-            $table->bigInteger('total_recovered');
+            $table->date('last_update')->default(\Carbon\Carbon::now());
+            $table->bigInteger('new_deaths')->default(0);
+            $table->bigInteger('total_deaths')->default(0);
+            $table->bigInteger('new_confirmed')->default(0);
+            $table->bigInteger('total_confirmed')->default(0);
+            $table->bigInteger('new_recovered')->default(0);
+            $table->bigInteger('total_recovered')->default(0);
             $table->timestamps();
         });
     }

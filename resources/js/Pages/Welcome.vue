@@ -11,7 +11,6 @@ import StatsCard from "@/components/StatsCard.vue";
 import WelcomeActionsCard from "@/components/WelcomeActionsCard.vue";
 import SelectedCountry from "@/components/SelectedCountry.vue";
 
-console.log(props.tomtomKey)
 const statistics = ref([
     {
         'new': 0,
@@ -39,7 +38,6 @@ onMounted(() => {
         container: "map",
     })
     map.on('click', (e) => {
-        console.log(e)
         selectedCountryError.value = false
         axios.get(route('view.country'), {
             params: {

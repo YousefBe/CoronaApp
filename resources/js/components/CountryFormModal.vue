@@ -35,10 +35,8 @@
             totalRecovered:0,
         }
     }
-    watch(() => _.cloneDeep(props.selectedCountry) , (currentValue , newValue)=>{
-        console.log(currentValue)
+    watch(() => _.cloneDeep(props.selectedCountry) , (currentValue , oldValue)=>{
         if(currentValue && currentValue.id){
-            console.log(currentValue.value)
             countryData.value.id = currentValue.id
 
             countryData.value.name = currentValue.name
@@ -54,7 +52,6 @@
         }
         else{
             clearForm()
-            console.log(countryData.value)
         }
     })
 
