@@ -23,6 +23,7 @@ NPM
 ```
 npm i 
 npm run build
+npm run dev
 ```
 Finally
 ```
