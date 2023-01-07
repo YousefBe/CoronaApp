@@ -27,3 +27,8 @@ Finally
 ```
 php artisan serve 
 ```
+Points not covered and known Issues 
+- Docker 
+- Testing 
+- App UI 'design is not good'
+- App is not responsive
