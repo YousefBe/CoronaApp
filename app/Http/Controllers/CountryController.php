@@ -71,6 +71,7 @@ class CountryController extends Controller
             'total_confirmed'=> $data['totalConfirmed'],
         ];
         $country = Country::create($countryData);
+        return new CountryResource($country);
 
     }
 
@@ -106,8 +107,7 @@ class CountryController extends Controller
             'total_confirmed'=> $data['totalConfirmed'],
         ];
         $country = $country->update($countryData);
-
-        return $country;
+        return new CountryResource($country);
     }
 
     /**
