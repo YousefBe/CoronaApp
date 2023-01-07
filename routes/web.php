@@ -16,18 +16,23 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    \Illuminate\Support\Facades\Log::info(\Illuminate\Support\Str::uuid()->toString());
+
+    $statistic = \App\Models\Statistic::first();
+    if(!$statistic){
+        $statistic =\App\Models\Statistic::create();
+    }
     return Inertia::render('Welcome', [
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
-        'tomtomKey'=> env('TOMTOM_kEY')
+        'tomtomKey'=> env('TOMTOM_kEY') ,
+        'defaultStatistics' =>  new \App\Http\Resources\StatisticsResource($statistic)
     ]);
 });
 
 Route::get('/countries', function () {
-    return Inertia::render('Countries' , [
-    ]);
+    return Inertia::render('Countries');
 });
+
 Route::get('/get-countries',[\App\Http\Controllers\CountryController::class , 'index'])->name('countries');
 Route::get('/countries/{country_id}',[\App\Http\Controllers\CountryController::class , 'show'])->name('country');
 Route::patch('/countries/{id}',[\App\Http\Controllers\CountryController::class , 'update'])->name('country.update');

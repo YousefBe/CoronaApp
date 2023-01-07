@@ -5,30 +5,15 @@ import {ref, onMounted, watch} from 'vue'
 const props =defineProps({
     laravelVersion: String,
     phpVersion: String,
-    tomtomKey : String
+    tomtomKey : String ,
+    defaultStatistics : Object ,
 });
 import StatsCard from "@/components/StatsCard.vue";
 import WelcomeActionsCard from "@/components/WelcomeActionsCard.vue";
 import SelectedCountry from "@/components/SelectedCountry.vue";
 
-const statistics = ref([
-    {
-        'new': 0,
-        'total': 0,
-        "title": "recovered"
-    }, {
-        'new': 0,
-        'total': 0,
-        "title": "confirmed"
-    },
-    {
-        'new': 0,
-        'total': 0,
-        "title": "Deaths"
-    }
-
-])
-
+const statistics = ref(props.defaultStatistics.stats)
+console.log()
 const selectedCountry = ref(null)
 const selectedCountryError = ref(false)
 
