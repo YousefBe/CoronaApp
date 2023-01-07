@@ -106,7 +106,7 @@ class CountryController extends Controller
             'new_confirmed'=> $data['newConfirmed'],
             'total_confirmed'=> $data['totalConfirmed'],
         ];
-        $country = $country->update($countryData);
+        $country->update($countryData);
         return new CountryResource($country);
     }
 
